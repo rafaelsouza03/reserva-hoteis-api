@@ -1,4 +1,4 @@
-package br.com.hoteliza.api;
+package br.com.hoteliza.reserva_hoteis;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
