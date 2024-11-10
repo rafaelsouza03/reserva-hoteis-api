@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/java,visualstudiocode,intellij,eclipse,netbeans
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,visualstudiocode,intellij,eclipse,netbeans
+# Created by https://www.toptal.com/developers/gitignore/api/java,maven,visualstudiocode,intellij,eclipse,netbeans
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,maven,visualstudiocode,intellij,eclipse,netbeans
 
 ### Eclipse ###
 .metadata
@@ -206,6 +206,25 @@ fabric.properties
 hs_err_pid*
 replay_pid*
 
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse m2e generated files
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
 ### NetBeans ###
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
@@ -217,7 +236,7 @@ nbdist/
 .nb-gradle/
 
 ### VisualStudioCode ###
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -235,4 +254,6 @@ nbdist/
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/java,visualstudiocode,intellij,eclipse,netbeans
+# End of https://www.toptal.com/developers/gitignore/api/java,maven,visualstudiocode,intellij,eclipse,netbeans
+
+HELP.md
