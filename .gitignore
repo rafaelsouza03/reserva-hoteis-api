@@ -236,3 +236,9 @@ nbdist/
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/java,visualstudiocode,intellij,eclipse,netbeans
+.classpath
+.project
+target/classes/application.properties
+target/classes/META-INF/MANIFEST.MF
+target/classes/META-INF/maven/br.com.hoteliza/reservation-api/pom.properties
+target/classes/META-INF/maven/br.com.hoteliza/reservation-api/pom.xml
