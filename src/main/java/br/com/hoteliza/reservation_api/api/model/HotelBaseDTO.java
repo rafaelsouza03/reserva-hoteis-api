@@ -6,8 +6,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CustomerBaseDTO {
-
+public class HotelBaseDTO {
+	
 	@NotNull
 	private Long id;
 
