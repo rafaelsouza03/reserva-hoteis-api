@@ -2,9 +2,9 @@ package br.com.hoteliza.reservation_api.api.model;
 
 import java.util.List;
 
-import br.com.hoteliza.reservation_api.domain.model.Facility;
 import br.com.hoteliza.reservation_api.domain.model.HotelOwner;
 import br.com.hoteliza.reservation_api.domain.model.Room;
+import br.com.hoteliza.reservation_api.enums.Facility;
 import lombok.Getter;
 import lombok.Setter;
 

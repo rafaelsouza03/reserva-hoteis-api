@@ -2,6 +2,7 @@ package br.com.hoteliza.reservation_api.domain.model;
 
 import java.util.List;
 
+import br.com.hoteliza.reservation_api.enums.Facility;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
@@ -28,35 +29,35 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Hotel {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "nome", nullable = false)
 	private String name;
-	
+
 	@ElementCollection
 	@CollectionTable(name = "comodidades", joinColumns = @JoinColumn(name = "hotel_id"))
 	private List<Facility> facilites;
-	
+
 	@Column(name = "endereço", nullable = false)
 	private String address;
-	
-	//private List<String> pictures;
-	
+
+	// private List<String> pictures;
+
 	@ElementCollection
 	@CollectionTable(name = "proximidades", joinColumns = @JoinColumn(name = "hotel_id"))
 	private List<String> vicinities;
-	
+
 	@Column(name = "politicas")
 	private String policy;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "proprietario_id")
 	private HotelOwner owner;
-	
+
 	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
-    private List<Room> rooms;
-	
+	private List<Room> rooms;
+
 }

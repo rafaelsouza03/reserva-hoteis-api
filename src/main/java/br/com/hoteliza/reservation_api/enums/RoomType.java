@@ -1,4 +1,4 @@
-package br.com.hoteliza.reservation_api.domain.model;
+package br.com.hoteliza.reservation_api.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

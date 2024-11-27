@@ -5,8 +5,8 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.hoteliza.reservation_api.domain.model.Customer;
-import br.com.hoteliza.reservation_api.domain.model.ReservationStatus;
 import br.com.hoteliza.reservation_api.domain.model.Room;
+import br.com.hoteliza.reservation_api.enums.ReservationStatus;
 import lombok.Getter;
 import lombok.Setter;
 

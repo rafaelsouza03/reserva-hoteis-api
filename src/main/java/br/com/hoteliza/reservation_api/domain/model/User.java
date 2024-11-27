@@ -1,5 +1,6 @@
 package br.com.hoteliza.reservation_api.domain.model;
 
+import br.com.hoteliza.reservation_api.enums.UserRole;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -21,10 +22,10 @@ public abstract class User {
 
 	@Column(unique = true, nullable = false)
 	private String email;
-	
+
 	@Column(nullable = false)
 	private String password;
-	
+
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
 

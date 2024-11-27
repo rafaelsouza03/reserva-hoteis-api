@@ -1,5 +1,6 @@
 package br.com.hoteliza.reservation_api.domain.model;
 
+import br.com.hoteliza.reservation_api.enums.RoomType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -28,21 +29,21 @@ public class Room {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Enumerated(EnumType.STRING)
 	private RoomType type;
-	
+
 	@Column(name = "bed_amount")
 	private Integer bedAmount;
-	
+
 	@Column(name = "people_capacity")
 	private Integer peopleCapacity;
-	
+
 	@Column(name = "price_per_day")
 	private Double pricePerDay;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "hotel_id")
 	private Hotel hotel;
-	
+
 }

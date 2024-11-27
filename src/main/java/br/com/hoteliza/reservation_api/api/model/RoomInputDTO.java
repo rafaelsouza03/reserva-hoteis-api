@@ -1,7 +1,7 @@
 package br.com.hoteliza.reservation_api.api.model;
 
 import br.com.hoteliza.reservation_api.domain.model.Hotel;
-import br.com.hoteliza.reservation_api.domain.model.RoomType;
+import br.com.hoteliza.reservation_api.enums.RoomType;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
