@@ -23,13 +23,13 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/hotels")
+@RequestMapping("/hotel")
 public class HotelController {
 
 	private HotelAssembler hotelAssembler;
 	private HotelService hotelService;
 
-	@PostMapping("/create")
+	@PostMapping("/register")
 	@ResponseStatus(HttpStatus.CREATED)
 	public HotelOutputDTO getMethodName(@RequestBody final @Valid HotelInputDTO hotelInputDTO) {
 		return hotelAssembler.toDto(hotelService.register(hotelAssembler.toHotel(hotelInputDTO)));
