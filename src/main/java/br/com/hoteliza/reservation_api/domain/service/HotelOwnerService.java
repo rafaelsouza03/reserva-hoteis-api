@@ -1,11 +1,10 @@
 package br.com.hoteliza.reservation_api.domain.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import br.com.hoteliza.reservation_api.domain.model.HotelOwner;
-import br.com.hoteliza.reservation_api.domain.repository.HotelOwnerRepository;
+import br.com.hoteliza.reservation_api.domain.model.User;
+import br.com.hoteliza.reservation_api.domain.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -14,12 +13,7 @@ import lombok.AllArgsConstructor;
 @Service
 public class HotelOwnerService {
 
-	private HotelOwnerRepository hotelOwnerRepository;
-
-	@Transactional
-	public HotelOwner register(final HotelOwner hotelOwner) {
-		return hotelOwnerRepository.save(hotelOwner);
-	}
+	private UserRepository userRepository;
 
 	@Transactional
 	public HotelOwner update(final HotelOwner hotelOwner, Long hotelOwnerId) {
@@ -30,18 +24,19 @@ public class HotelOwnerService {
 		findHotelOwner.setPassword(hotelOwner.getPassword());
 		findHotelOwner.setHotel(hotelOwner.getHotel());
 
-		return hotelOwnerRepository.save(findHotelOwner);
+		return userRepository.save(findHotelOwner);
 	}
 
 	@Transactional
 	public HotelOwner search(final Long hotelOwnerId) {
-		return hotelOwnerRepository.findById(hotelOwnerId)
-				.orElseThrow(() -> new EntityNotFoundException("Proprietário não encontrado"));
-	}
+		User user = userRepository.findById(hotelOwnerId)
+				.orElseThrow(() -> new EntityNotFoundException("Proprietário não encontrado."));
 
-	@Transactional
-	public List<HotelOwner> list() {
-		return hotelOwnerRepository.findAll();
+		if (user instanceof HotelOwner) {
+			return (HotelOwner) user;
+		} else {
+			throw new EntityNotFoundException("O usuário encontrado não é um proprietário.");
+		}
 	}
 
 }
