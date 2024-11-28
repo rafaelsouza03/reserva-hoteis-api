@@ -23,13 +23,13 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/rooms")
+@RequestMapping("/room")
 public class RoomController {
 
 	private RoomAssembler roomAssembler;
 	private RoomService roomService;
 
-	@PostMapping("/create")
+	@PostMapping("/register")
 	@ResponseStatus(HttpStatus.CREATED)
 	public RoomOutputDTO getMethodName(@RequestBody final @Valid RoomInputDTO roomInputDTO) {
 		return roomAssembler.toDto(roomService.register(roomAssembler.toRoom(roomInputDTO)));
@@ -46,9 +46,9 @@ public class RoomController {
 		return roomAssembler.toDto(roomService.search(roomId));
 	}
 
-	@GetMapping("/list")
-	public List<RoomOutputDTO> list() {
-		return roomAssembler.toCollectionDto(roomService.list());
+	@GetMapping("/list/{hotelId}")
+	public List<RoomOutputDTO> listByHotel(@PathVariable final @NotNull Long hotelId) {
+		return roomAssembler.toCollectionDto(roomService.listByHotel(hotelId));
 	}
 
 }

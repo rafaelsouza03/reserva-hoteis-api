@@ -1,4 +1,4 @@
-package br.com.hoteliza.reservation_api.api.model;
+package br.com.hoteliza.reservation_api.api.model.user.customer;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -42,6 +42,10 @@ public class Reservation {
 	@JoinColumn(name = "room_id")
 	private Room room;
 
+	@ManyToOne
+	@JoinColumn(name = "hotel_id")
+	private Hotel hotel;
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "check_in")
 	private LocalDate checkIn;

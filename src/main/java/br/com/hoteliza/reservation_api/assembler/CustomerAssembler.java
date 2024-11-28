@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
-import br.com.hoteliza.reservation_api.api.model.CustomerInputDTO;
-import br.com.hoteliza.reservation_api.api.model.CustomerOutputDTO;
+import br.com.hoteliza.reservation_api.api.model.user.customer.CustomerInputDTO;
+import br.com.hoteliza.reservation_api.api.model.user.customer.CustomerOutputDTO;
 import br.com.hoteliza.reservation_api.domain.model.Customer;
 import lombok.AllArgsConstructor;
 

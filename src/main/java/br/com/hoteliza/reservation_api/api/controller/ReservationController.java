@@ -3,11 +3,9 @@ package br.com.hoteliza.reservation_api.api.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -23,24 +21,17 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/reservations")
+@RequestMapping("/reservation")
 public class ReservationController {
 
 	private ReservationAssembler reservationAssembler;
 	private ReservationService reservationService;
 
-	@PostMapping("/create")
+	@PostMapping("/register")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ReservationOutputDTO getMethodName(@RequestBody final @Valid ReservationInputDTO reservationInputDTO) {
 		return reservationAssembler
 				.toDto(reservationService.register(reservationAssembler.toReservation(reservationInputDTO)));
-	}
-
-	@PutMapping("/{reservationId}")
-	public ResponseEntity<ReservationOutputDTO> update(@PathVariable final @NotNull Long reservationId,
-			@RequestBody @Valid final ReservationInputDTO reservationInputDTO) {
-		return ResponseEntity.ok(reservationAssembler.toDto(
-				reservationService.update(reservationAssembler.toReservation(reservationInputDTO), reservationId)));
 	}
 
 	@GetMapping("/{reservationId}")
@@ -48,9 +39,14 @@ public class ReservationController {
 		return reservationAssembler.toDto(reservationService.search(reservationId));
 	}
 
-	@GetMapping("/list")
-	public List<ReservationOutputDTO> list() {
-		return reservationAssembler.toCollectionDto(reservationService.list());
+	@GetMapping("/list/hotel/{hotelId}")
+	public List<ReservationOutputDTO> listByHotel(Long hotelId) {
+		return reservationAssembler.toCollectionDto(reservationService.listByHotel(hotelId));
+	}
+	
+	@GetMapping("/list/customer/{customerId}")
+	public List<ReservationOutputDTO> listByCustomer(Long customerId) {
+		return reservationAssembler.toCollectionDto(reservationService.listByCustomer(customerId));
 	}
 
 }

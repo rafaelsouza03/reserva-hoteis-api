@@ -1,11 +1,10 @@
 package br.com.hoteliza.reservation_api.domain.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import br.com.hoteliza.reservation_api.domain.model.Customer;
-import br.com.hoteliza.reservation_api.domain.repository.CustomerRepository;
+import br.com.hoteliza.reservation_api.domain.model.User;
+import br.com.hoteliza.reservation_api.domain.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -14,33 +13,30 @@ import lombok.AllArgsConstructor;
 @Service
 public class CustomerService {
 
-	private CustomerRepository customerRepository;
-
-	@Transactional
-	public Customer register(final Customer customer) {
-		return customerRepository.save(customer);
-	}
+	private UserRepository userRepository;
 
 	@Transactional
 	public Customer update(final Customer customer, Long customerId) {
 		Customer findCustomer = search(customerId);
-		
+
 		findCustomer.setName(customer.getName());
 		findCustomer.setEmail(customer.getEmail());
 		findCustomer.setPassword(customer.getPassword());
 		findCustomer.setPhoneNumber(customer.getPhoneNumber());
-		
-		return customerRepository.save(findCustomer);
+
+		return userRepository.save(findCustomer);
 	}
-	
+
 	@Transactional
 	public Customer search(final Long customerId) {
-		return customerRepository.findById(customerId).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado"));
-	}
-	
-	@Transactional
-	public List<Customer> list(){
-		return customerRepository.findAll();
+		User user = userRepository.findById(customerId)
+				.orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado"));
+
+		if (user instanceof Customer) {
+			return (Customer) user;
+		} else {
+			throw new EntityNotFoundException("O usuário encontrado não é um cliente");
+		}
 	}
 
 }
