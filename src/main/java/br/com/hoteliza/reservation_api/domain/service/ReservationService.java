@@ -41,7 +41,12 @@ public class ReservationService {
 	}
 	
 	@Transactional
-	public List<Reservation> list(){
-		return reservationRepository.findAll();
+	public List<Reservation> listByHotel(Long hotelId){
+		return reservationRepository.findByHotel_Id(hotelId);
+	}
+	
+	@Transactional
+	public List<Reservation> listByCustomer(Long customerId){
+		return reservationRepository.findByCustomer_Id(customerId);
 	}
 }

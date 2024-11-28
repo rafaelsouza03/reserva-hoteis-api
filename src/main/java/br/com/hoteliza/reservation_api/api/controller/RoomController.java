@@ -46,9 +46,9 @@ public class RoomController {
 		return roomAssembler.toDto(roomService.search(roomId));
 	}
 
-	@GetMapping("/list")
-	public List<RoomOutputDTO> list() {
-		return roomAssembler.toCollectionDto(roomService.list());
+	@GetMapping("/list/{hotelId}")
+	public List<RoomOutputDTO> listByHotel(@PathVariable final @NotNull Long hotelId) {
+		return roomAssembler.toCollectionDto(roomService.listByHotel(hotelId));
 	}
 
 }

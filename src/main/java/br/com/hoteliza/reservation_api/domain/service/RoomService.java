@@ -39,8 +39,8 @@ public class RoomService {
 	}
 	
 	@Transactional
-	public List<Room> list(){
-		return roomRepository.findAll();
+	public List<Room> listByHotel(Long hotelId){
+		return roomRepository.findByHotel_Id(hotelId);
 	}
 	
 	

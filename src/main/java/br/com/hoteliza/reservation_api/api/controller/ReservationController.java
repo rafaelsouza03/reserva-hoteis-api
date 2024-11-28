@@ -39,9 +39,14 @@ public class ReservationController {
 		return reservationAssembler.toDto(reservationService.search(reservationId));
 	}
 
-	@GetMapping("/list")
-	public List<ReservationOutputDTO> list() {
-		return reservationAssembler.toCollectionDto(reservationService.list());
+	@GetMapping("/list/hotel/{hotelId}")
+	public List<ReservationOutputDTO> listByHotel(Long hotelId) {
+		return reservationAssembler.toCollectionDto(reservationService.listByHotel(hotelId));
+	}
+	
+	@GetMapping("/list/customer/{customerId}")
+	public List<ReservationOutputDTO> listByCustomer(Long customerId) {
+		return reservationAssembler.toCollectionDto(reservationService.listByCustomer(customerId));
 	}
 
 }

@@ -28,30 +28,34 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Reservation {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "room_id")
 	private Room room;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "hotel_id")
+	private Hotel hotel;
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "check_in")
 	private LocalDate checkIn;
-	
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "check_out")
 	private LocalDate checkOut;
-	
+
 	@Column(name = "total_price")
 	private Double totalPrice;
-	
+
 	@Enumerated(EnumType.STRING)
 	private ReservationStatus status;
 
