@@ -51,5 +51,10 @@ public class HotelController {
 	public List<HotelOutputDTO> list() {
 		return hotelAssembler.toCollectionDto(hotelService.list());
 	}
+	
+	@GetMapping("/list/{ownerId}")
+	public List<HotelOutputDTO> listByOwner(@PathVariable final @NotNull Long ownerId) {
+		return hotelAssembler.toCollectionDto(hotelService.listByOwner(ownerId));
+	}
 
 }

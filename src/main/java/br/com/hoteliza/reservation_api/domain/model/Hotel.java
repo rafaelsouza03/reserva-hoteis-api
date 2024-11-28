@@ -53,7 +53,7 @@ public class Hotel {
 	private String policy;
 	
 	@ManyToOne
-	@JoinColumn(name = "proprietario_id")
+	@JoinColumn(name = "owner_id")
 	private HotelOwner owner;
 	
 	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)

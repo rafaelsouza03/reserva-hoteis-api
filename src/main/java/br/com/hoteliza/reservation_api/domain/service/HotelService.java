@@ -40,9 +40,15 @@ public class HotelService {
 	public Hotel search(final Long hotelId) {
 		return hotelRepository.findById(hotelId).orElseThrow(() -> new EntityNotFoundException("Hotel não encontrado"));
 	}
-	
+
 	@Transactional
-	public List<Hotel> list(){
+	public List<Hotel> list() {
 		return hotelRepository.findAll();
 	}
+
+	@Transactional
+	public List<Hotel> listByOwner(Long ownerId) {
+		return hotelRepository.findByOwner_Id(ownerId);
+	}
+
 }
