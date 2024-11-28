@@ -25,7 +25,7 @@ public class Customer extends User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	//private String profilePicture;
+	private String profilePicture;
 	
 	@Column(name = "phone_number")
 	private String phoneNumber;

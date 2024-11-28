@@ -22,5 +22,7 @@ public class CustomerInputDTO {
 	@Size(min = 8, message = "A senha deve ter pelo menos 8 caracteres.")
 	private String password;
 	
+	private String profilePicture;
+	
 	private String phoneNumber;
 }

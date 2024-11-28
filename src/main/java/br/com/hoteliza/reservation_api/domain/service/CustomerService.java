@@ -29,6 +29,7 @@ public class CustomerService {
 		findCustomer.setEmail(customer.getEmail());
 		findCustomer.setPassword(customer.getPassword());
 		findCustomer.setPhoneNumber(customer.getPhoneNumber());
+		findCustomer.setProfilePicture(customer.getProfilePicture());
 		
 		return customerRepository.save(findCustomer);
 	}
