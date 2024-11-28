@@ -29,7 +29,7 @@ public class ImageUploadController {
 	private String uploadDir;
 
 	@PostMapping("/upload")
-	public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
+	public ResponseEntity<String> uploadImage(@RequestParam MultipartFile file) {
 		try {
 			String filePath = saveImage(file);
 			return ResponseEntity.ok("Imagem carregada com sucesso: " + filePath);
@@ -40,19 +40,26 @@ public class ImageUploadController {
 
 	private String saveImage(MultipartFile file) throws IOException {
 		Path uploadPath = Paths.get(uploadDir);
-
 		if (!Files.exists(uploadPath)) {
 			Files.createDirectories(uploadPath);
 		}
 
 		String contentType = file.getContentType();
-
 		if (!contentType.equals("image/jpeg") && !contentType.equals("image/png")) {
 			throw new IllegalArgumentException("Somente imagens JPEG ou PNG são permitidas");
 		}
 
-		String fileName = file.getOriginalFilename();
+		String fileExtension = contentType.equals("image/jpeg") ? ".jpg" : ".png";
+		int counter = 1;
+		String fileName = "profile_picture" + counter + fileExtension;
 		Path filePath = uploadPath.resolve(fileName);
+
+		while (Files.exists(filePath)) {
+			counter++;
+			fileName = "profile_picture" + counter + fileExtension;
+			filePath = uploadPath.resolve(fileName);
+		}
+
 		Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
 		return filePath.toString();
