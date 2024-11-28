@@ -243,3 +243,4 @@ target/classes/META-INF/MANIFEST.MF
 target/classes/META-INF/maven/br.com.hoteliza/reservation-api/pom.properties
 target/classes/META-INF/maven/br.com.hoteliza/reservation-api/pom.xml
 /target
+/.vscode

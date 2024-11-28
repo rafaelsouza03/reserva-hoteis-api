@@ -16,8 +16,9 @@ import br.com.hoteliza.reservation_api.api.model.user.RegisterDTO;
 import br.com.hoteliza.reservation_api.domain.model.Customer;
 import br.com.hoteliza.reservation_api.domain.model.HotelOwner;
 import br.com.hoteliza.reservation_api.domain.model.User;
-import br.com.hoteliza.reservation_api.domain.model.UserRole;
+
 import br.com.hoteliza.reservation_api.domain.repository.UserRepository;
+import br.com.hoteliza.reservation_api.enums.UserRole;
 import br.com.hoteliza.reservation_api.infra.security.TokenService;
 import jakarta.validation.Valid;
 
