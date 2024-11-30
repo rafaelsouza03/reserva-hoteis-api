@@ -4,26 +4,16 @@ Este projeto é uma API para agendamento de hotéis, desenvolvida em Java, que o
 
 ## Funcionalidades
 
-### Agendamento de Hotéis
-- Permite que usuários agendem hotéis e seus respectivos quartos.
-- Disponibiliza opções de quartos, como:
-  - Quarto Single
-  - Suíte Presidencial
-  - Suíte Executiva
-  - Suíte Júnior
-  - Apartamento
-  - Quarto de Casal Deluxe
-  - Quarto Twin
-  - Quarto de Casal
 
-### Verificação de Disponibilidade
-- Implementa uma **thread** para verificar se o quarto selecionado está disponível ou reservado, garantindo maior eficiência no controle de reservas.
-
-### Cadastro de Usuários e Proprietários
 - Sistema de cadastro para **proprietários de hotéis**:
-  - Permite que proprietários registrem seus hotéis na plataforma.
+- Permite que proprietários registrem seus hotéis na plataforma.
 - Sistema de cadastro para **usuários comuns**:
-  - Permite que realizem agendamentos em hotéis cadastrados por proprietários.
+- Permite que realizem agendamentos em hotéis cadastrados por proprietários.
+- Verificações das reservas feitas pelo usuário Customer
+- Verificação de valores das reservas feitas
+- Disponibiliza todos os tipo de quarto para reserva
+- Verificações do Owner das reservas feitas pelos usuários Customers 
+- Implementa uma **thread** para verificar se o quarto selecionado está disponível ou reservado, garantindo maior eficiência no controle de reservas.
 
 ## Como Executar o Projeto
 
