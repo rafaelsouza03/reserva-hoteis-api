@@ -45,10 +45,8 @@ Após executar os comandos acima, a API estará disponível para uso.
 
 alunos que contribuíram para a construção deste projeto:
 
-- **Carlos Eduardo**
-- **Eric Rafael**
-- **Davi Alves**
-- **Iago Rosado**
-- **Pedro Henrique Souza**
-- **Rujélio Lima**
-
+-- **Eric Rafael da Silva Souza**
+-- **Davi Alves do Nascimento**
+-- **Iago Fernandes Teixeira Rosado**
+-- **Rujélio da Costa Lima**
+-- **Pedro Henrique Souza Freitas** 
